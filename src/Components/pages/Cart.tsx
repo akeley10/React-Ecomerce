@@ -1,4 +1,5 @@
 import Navbar from '../Navbar.js'
+import Lamp from '../../Components/pages/productPage/avant-garde lamp.js'
 const Cart = () => {
   return (
     <>

@@ -11,7 +11,8 @@ const Navbar = () => {
   const [theme, setTheme] = useState('');
   return (
     <>
-    <div className='bg-[#021431] text-white w-full'>
+    <div className='flex flex-1 bg-[#021431] text-white w-full dark:bg-[#414558]'>
+      <p className='text-right mr-20 p-2'><Link to="/form">Sign in / Guest</Link></p>
        <p className='text-right mr-20 p-2'>example</p>
     </div>
 
@@ -36,16 +37,16 @@ const Navbar = () => {
         </li>
         </div>
         <div className='flex text-left ml-50 w-80'>
-        <div className='flex gap-2 bg-gray-100 border-gray-300'>
+        <div className='flex gap-2'>
         <button onClick={()=>{
           setTheme("");
-        }}><img src={light} className='cursor-pointer p-1 h-10 stroke-white dark:fill-white' alt="light"></img></button>
+        }}><img src={light} className='cursor-pointer p-1 h-10 invert-0 dark:invert' alt="light"></img></button>
         <button onClick={()=>{
           setTheme("dark");
-        }}><img src={dark} className='cursor-pointer p-1 h-10' alt="dark"></img></button>
+        }}><img src={dark} className='cursor-pointer p-1 h-10 invert-0 dark:invert' alt="dark"></img></button>
         </div>
         <Link to="/cart">
-        <img src={cart} className='cursor-pointer p-1 h-10 ml-5 ' alt="cart"></img>
+        <img src={cart} className='cursor-pointer p-1 h-10 ml-5 invert-0 dark:invert' alt="cart"></img>
         </Link>
         </div>
     </div>
