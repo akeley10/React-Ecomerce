@@ -1,4 +1,5 @@
 import './App.css'
+import { CartProvider } from './context/Cart.context.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Components/pages/Home.js'
 import About from './Components/pages/About.js'
@@ -14,7 +15,9 @@ function App() {
 
   return (
     <>
+    
     <BrowserRouter>
+     <CartProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -26,7 +29,9 @@ function App() {
         <Route path="/products/2" element={<Product2 />} />
         <Route path="/products/3" element={<Product3 />} />
       </Routes>
+      </CartProvider>
     </BrowserRouter>
+    
     </>
   )
 }

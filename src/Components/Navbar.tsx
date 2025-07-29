@@ -1,14 +1,17 @@
 import { useState } from 'react';
 
-import cart from '../assets/cart.png';
+import cartImg from '../assets/cart.png';
 import dark from '../assets/dark.svg';
 import light from '../assets/light.svg';
 import { Outlet, Link } from "react-router-dom";
+import { useCart } from '../context/Cart.context';
+
 
 
 
 const Navbar = () => {
   const [theme, setTheme] = useState('');
+  const { cart } = useCart();
   return (
     <>
     <div className='flex flex-1 bg-[#021431] text-white w-full dark:bg-[#414558]'>
@@ -45,9 +48,14 @@ const Navbar = () => {
           setTheme("dark");
         }}><img src={dark} className='cursor-pointer p-1 h-10 invert-0 dark:invert' alt="dark"></img></button>
         </div>
-        <Link to="/cart">
-        <img src={cart} className='cursor-pointer p-1 h-10 ml-5 invert-0 dark:invert' alt="cart"></img>
-        </Link>
+        <Link to="/cart" className="relative flex items-center gap-1">
+        <img src={cartImg} className="cursor-pointer h-10 invert-0 dark:invert" alt="cart" />
+        <div className="bg-blue-500 w-5 h-5 rounded-full flex items-center justify-center mb-5">
+          <p className="text-white text-xs">{cart.length}</p>
+        </div>
+      </Link>
+
+
         </div>
     </div>
 
