@@ -14,9 +14,9 @@ const Navbar = () => {
   const { cart } = useCart();
   return (
     <>
-    <div className='flex flex-1 bg-[#021431] text-white w-full dark:bg-[#414558]'>
-      <p className='text-right mr-20 p-2'><Link to="/form">Sign in / Guest</Link></p>
-       <p className='text-right mr-20 p-2'>example</p>
+    <div className='flex flex-1 justify-end bg-[#021431] text-white w-full dark:bg-[#414558]'>
+      <p className='float-right mr-10 p-2 '><Link to="/form">Sign in / Guest</Link></p>
+       <p className='mr-50 p-2'>example</p>
     </div>
 
     <div className={`${theme ? "dark" : ""} flex flex-1 w-full bg-[#f0f6ff] p-3 list-none dark:bg-black dark:text-white`}>

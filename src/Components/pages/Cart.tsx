@@ -14,28 +14,38 @@ const Cart = () => {
     }, new Map()).values()
   );
 
+  const total = groupedCart.reduce((total, product) => {
+    return total + product.price * product.count;
+  }, 0);
+
   return (
     <>
       <Navbar></Navbar>
-      <div className='p-20 gap-20'>
-      <p className='max-w-2xl text-4xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
+      <div className='pt-20 pl-50 gap-20'>
+      <p className='w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
       {cart.length === 0 ? (
         <p className='mt-10 ml-5'>Tu carrito está vacío.</p>
       ) : (
-        <ul className='mt-10 ml-5'>
+        <ul className='mt-10 ml-30 w-200'>
+          <div className='bg-blue-50  rounded-xl float-right'>
+              <p className="p-10  text-xs  text-right">
+              Total: {total.toFixed(2)}$
+          </p>
+          </div>
           {groupedCart.map((product, i) => (
-            <li className='flex p-2' key={i}>
+            <li className='flex p-2 ' key={i}>
             {<img className='h-30 w-30 rounded-xl object-cover' src={product.img}></img>} 
               {<p className='pl-10 pt-5'>{product.title}</p>} 
               {<p className='pl-10 pt-5 pr-10'>{(product.count * product.price).toFixed(2)}$</p>}
               {product.count > 1 && (
-                 <p className='pl-10 pt-5 text-gray-500'>x{product.count}</p>
+                 <p className='pl-10 pr-10 pt-5 text-gray-500'>x{product.count}</p>
               )}
               {product.count > 1 ? (
-                 <button className='h-10 w-20 text-white bg-[#463aa1] rounded-lg' onClick={()=> removeOneFromCart(product.id)}>Quitar</button>
+                 <button className='h-10 w-20 mt-3 text-white bg-[#463aa1] rounded-lg' onClick={()=> removeOneFromCart(product.id)}>Remove</button>
               ) : (
-                <button className='h-10 2-20 text-white bg-[#463aa1] rounded-lg' onClick={()=> removeFromCart(product.id)}>Eliminar</button>
+                <button className='h-10 w-20 mt-3 text-white bg-[#463aa1] rounded-lg' onClick={()=> removeFromCart(product.id)}>Delete</button>
               )}
+  
             </li>
           ))}
         </ul>
