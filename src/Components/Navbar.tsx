@@ -23,7 +23,7 @@ const Navbar = () => {
        <p className='md:mr-50 p-2'>example</p>
     </div>
 
-    <div className='flex flex-1 md:w-full bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
+    <div className='flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
         <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 lg:p-1 rounded-xs'>
         <Link to="/">
         <p  className='hidden lg:block cursor-pointer pr-3 pl-3 text-2xl font-medium text-white'>E</p>
@@ -34,7 +34,7 @@ const Navbar = () => {
           <img className='h-10' src={hamburguer} alt="iconHamburguer" />
         </button>
       </div>
-      <div className={`${hamburguerMenu === false ? "hidden" : "flex flex-col absolute w-50 rounded-2xl left-10 top-23 bg-[#f0f6ff] lg:flex flex-1 lg:gap-10"}`}>
+      <div className={`${window.screen.width < 400 && hamburguerMenu === false ? "hidden" : " flex flex-col absolute lg:flex-row lg:relative w-50  rounded-2xl left-10 top-23 lg:top-0 lg:left-20 bg-[#f0f6ff] dark:bg-[#181921] lg:flex flex-1 lg:justify-center lg:gap-10"}`}>
         <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
         <Link to="/">Home</Link>
         </li>

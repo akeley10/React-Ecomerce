@@ -29,7 +29,8 @@ const Products = () => {
         </div>
     </div>
     </div>
-    <div className="flex gap-4 mt-8 mb-10 float-right mr-10 b">
+    <div className='dark:bg-[#272935]'>
+    <div className="flex gap-4 mt-8 mb-10 float-right mr-10 bg-blue-50">
   <button className='bg-blue-100 p-2'
     disabled={currentPage === 1}
     onClick={() => setCurrentPage(currentPage - 1)}
@@ -43,6 +44,7 @@ const Products = () => {
   >
     Siguiente
   </button>
+</div>
 </div>
 <Outlet />
     </>
