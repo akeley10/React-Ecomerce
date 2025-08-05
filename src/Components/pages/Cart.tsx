@@ -21,14 +21,17 @@ const Cart = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className='pt-20 pl-50 gap-20'>
-      <p className='w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
+      <div className=' pt-10 lg:pt-20  pl-10 lg:pl-50 gap-20'>
       {cart.length === 0 ? (
-        <p className='mt-10 ml-5'>Tu carrito está vacío.</p>
+     <p className='w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
+      ) : (<p className='w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Shopping cart</p> )}
+     
+      {cart.length === 0 ? (
+        <p className='mt-10 ml-5'>your cart is empty</p>
       ) : (
-        <ul className='mt-10 ml-30 w-200'>
-          <div className='bg-blue-50  rounded-xl float-right'>
-              <p className="p-10  text-xs  text-right">
+        <ul className='mt-10 w-220'>
+          <div className='bg-blue-50 rounded-xl float-right'>
+              <p className="p-10 text-xs text-right">
               Total: {total.toFixed(2)}$
           </p>
           </div>
