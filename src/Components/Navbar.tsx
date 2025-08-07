@@ -34,7 +34,7 @@ const Navbar = () => {
           <img className='h-10' src={hamburguer} alt="iconHamburguer" />
         </button>
       </div>
-      <div className={`${window.screen.width < 400 && hamburguerMenu === false ? "hidden" : " flex flex-col absolute lg:flex-row lg:relative w-50  rounded-2xl left-10 top-23 lg:top-0 lg:left-20 bg-[#f0f6ff] dark:bg-[#181921] lg:flex flex-1 lg:justify-center lg:gap-10"}`}>
+      <div className={`${window.screen.width < 700 && hamburguerMenu === false ? "hidden" : " flex flex-col absolute lg:flex-row lg:relative w-50  rounded-2xl left-10 top-23 lg:top-0 lg:left-20 bg-[#f0f6ff] dark:bg-[#181921] lg:flex flex-1 lg:justify-center lg:gap-10"}`}>
         <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
         <Link to="/">Home</Link>
         </li>
