@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import cartImg from '../assets/cart.png';
 import dark from '../assets/dark.svg';
 import light from '../assets/light.svg';
@@ -7,20 +6,23 @@ import hamburguer from '../assets/hamburguer.png';
 import { Outlet, Link } from "react-router-dom";
 import { useCart } from '../context/Cart.context';
 import { useTheme } from '../context/Theme.context';
-
-
-
+import { useUser } from '../context/User.context';
 
 const Navbar = () => {
+  const { email,deleteEmail } = useUser();
   const { theme, setTheme } = useTheme();
   const [hamburguerMenu, setHamburguerMenu] = useState(false);
   const { cart } = useCart();
+
+  
   return (
     <>
     <div>
     <div className='md:flex md:flex-1 md:justify-end bg-[#021431] text-white w-full dark:bg-[#414558]'>
-      <p className='float-right mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / Guest</Link></p>
-       <p className='md:mr-50 p-2'>example</p>
+      <p className='float-right mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
+      <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
+    }   window.location.href = "/"; 
+  }} >Cerrar sesión</button>
     </div>
 
     <div className='flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>

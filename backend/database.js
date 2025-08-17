@@ -20,15 +20,20 @@ app.get('/', (req, res) => {
   res.send('Servidor Express funcionando 🚀');
 });
 
-
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-
-  console.log("Datos recibidos:", email, password);
-
-
-});
 // Arrancar servidor
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+
+
+app.post('/login', (req, res) => {
+  console.log("Datos recibidos en login:", req.body);
+  res.status(200).json({
+    success: true,
+    email: req.body.email || 'Email no recibido'
+
+  });
+});
+
+

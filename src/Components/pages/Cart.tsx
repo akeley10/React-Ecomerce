@@ -1,6 +1,8 @@
 import { useCart } from '../../context/Cart.context';
 import Navbar from '../Navbar.js'
+import { useUser } from '../../context/User.context.js';
 const Cart = () => {
+  const { email } = useUser();
   const { cart, removeOneFromCart, removeFromCart } = useCart();
   const groupedCart = Array.from(
     cart.reduce((map, product) => {
@@ -51,7 +53,10 @@ const Cart = () => {
          <div className='dark:bg-[#181921] bg-blue-50 w-50 rounded-xl lg:float-right'>
               <p className="dark:text-white text-black pt-20 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
               Total: {total.toFixed(2)}$
-          </p>
+              </p>
+              <p>
+              {email}
+              </p>
           </div>
       </div>
     </>

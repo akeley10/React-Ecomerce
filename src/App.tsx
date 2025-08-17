@@ -1,6 +1,7 @@
-import './App.css'
+import './App.css';
 import { CartProvider } from './context/Cart.context.js';
-import { ThemeProvider } from './context//Theme.context.js';
+import { UserProvider } from './context/User.context.js';
+import { ThemeProvider } from './context/Theme.context.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Components/pages/Home.js'
 import About from './Components/pages/About.js'
@@ -18,6 +19,7 @@ function App() {
     <>
     
     <BrowserRouter>
+    <UserProvider>
     <ThemeProvider>
      <CartProvider>
       <Routes>
@@ -33,6 +35,7 @@ function App() {
       </Routes>
       </CartProvider>
       </ThemeProvider>
+       </UserProvider>
     </BrowserRouter>
     
     </>
