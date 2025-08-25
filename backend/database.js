@@ -1,4 +1,5 @@
 const express = require('express');
+const Stripe = require('stripe');
 const app = express();
 const cors = require('cors');
 const port = 3000;
@@ -9,6 +10,10 @@ const connection = mysql.createConnection({
   password: '',
   database: 'react-ecomerce'
 })
+
+const stripe = Stripe('sk_test_51RzmV51ddpsbF4YJJnT62Dxrro3EgGhDM7Ok6ksxQta7jibi5T4T2KvK9fbb30V1NUilw2n69zAk6UB0uoG6x2Wp002VzD1kWo');
+
+
 
 
 app.use(cors({ origin: 'http://localhost:5173' }));
@@ -36,4 +41,29 @@ app.post('/login', (req, res) => {
   });
 });
 
+
+app.post('/create-checkout-session', async (req, res) => {
+  const { cart, email } = req.body;
+
+  try {
+    const line_items = cart.map(product => ({
+      price: product.priceId,
+      quantity: product.count,
+    }));
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      customer_email: email,
+      line_items,
+      success_url: 'http://localhost:5173/success',
+      cancel_url: 'http://localhost:5173/cancel',
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('Error al crear sesión:', err);
+    res.status(500).json({ error: 'No se pudo crear la sesión' });
+  }
+});
 

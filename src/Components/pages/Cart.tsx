@@ -16,9 +16,22 @@ const Cart = () => {
     }, new Map()).values()
   );
 
+  const handleCheckout = () => {
+  fetch('http://localhost:3000/create-checkout-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cart: groupedCart, email }),
+  })
+    .then(res => res.json())
+    .then(data => window.location.href = data.url)
+    .catch(err => console.error(err));
+
+}
+
   const total = groupedCart.reduce((total, product) => {
     return total + product.price * product.count;
   }, 0);
+
 
   return (
     <>
@@ -53,9 +66,10 @@ const Cart = () => {
          <div className='dark:bg-[#181921] bg-blue-50 w-50 rounded-xl lg:float-right'>
               <p className="dark:text-white text-black pt-20 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
               Total: {total.toFixed(2)}$
-              </p>
-              <p>
+              <br></br>
+              <button onClick={handleCheckout} className='h-10 w-20 ml-3 lg:ml-0 mt-3 text-white bg-[#463aa1] rounded-lg'>Pagar</button>
               {email}
+
               </p>
           </div>
       </div>

@@ -1,7 +1,12 @@
 import Navbar from '../../Navbar.js'
 import product2 from '../../../assets/producto2.jpeg'
+import { useCart } from '../../../context/Cart.context';
+import dataProducts from '../../../data/dataProducts';
 import { Outlet, Link } from "react-router-dom";
 const bed = () => {
+  const { addToCart } = useCart();
+  const product = dataProducts.find(p => p.id === 0);
+
   return (
     <>
      <Navbar></Navbar>
@@ -14,7 +19,7 @@ const bed = () => {
       <h1 className='text-3xl ml-10 pb-5 font-bold'>Comfy Bed</h1>
       <p className='text-xl ml-10 pb-5'>10$</p>
       <p className='ml-10 w-120 leading-8'>Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge</p>
-      <button className='text-xs w-30 text-white font-bold uppercase bg-[#463aa1] rounded-lg p-3 mt-10 ml-10 cursor-pointer'>Add to bag</button>
+      <button className='text-xs w-30 text-white font-bold uppercase bg-[#463aa1] rounded-lg p-3 mt-10 ml-10 cursor-pointer' onClick={() => product && addToCart(product)}>Add to bag</button>
       </div>    
      </div>
     <Outlet />
