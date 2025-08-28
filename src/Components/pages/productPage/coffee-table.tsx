@@ -9,15 +9,15 @@ const coffee = () => {
   return (
     <>
      <Navbar></Navbar>
-     <div className='pt-20 pl-50 pb-5 flex gap-2'>
+     <div className='pt-20 pl-50 pb-5 flex gap-2 dark:bg-[#272935] dark:text-white '>
      <Link to="/">Home</Link><p>{'>'}</p><Link to="/products">Products</Link>
      </div>
-     <div className='flex flex-1'>
+     <div className='flex flex-1 h-150 dark:bg-[#272935]'>
       <img className='h-100 w-130 ml-50 mr-10 object-cover rounded-xl' src={product2}></img> 
       <div className='flex flex-col'>
-      <h1 className='text-3xl ml-10 pb-5 font-bold'>Coffee Table</h1>
-      <p className='text-xl ml-10 pb-5'>10$</p>
-      <p className='ml-10 w-120 leading-8'>Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge</p>
+      <h1 className='text-3xl ml-10 pb-5 font-bold dark:text-white'>Coffee Table</h1>
+      <p className='text-xl ml-10 pb-5 dark:text-[#bf95f9]'>10$</p>
+      <p className='ml-10 w-120 leading-8 dark:text-white'>Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge</p>
       <button className='text-xs w-30 text-white font-bold uppercase bg-[#463aa1] rounded-lg p-3 mt-10 ml-10 cursor-pointer' onClick={() => product && addToCart(product)}>
       Add to cart
     </button>  

@@ -15,7 +15,7 @@ const Products = () => {
       <Navbar></Navbar>
     <div className='flex lg:p-20 gap-20 dark:bg-[#272935]'>
    <div className=''>
-       <p className='dark:text-white max-w-2xl text-4xl font-bold tracking-tight sm:text-4xl border-b dark:border-b-[#09090c] border-b-[hsl(219_44%_92%/1)] p-3'>Products</p>
+       <p className='dark:text-white max-w-2xl text-4xl font-bold tracking-tight sm:text-4xl border-b  border-b-[hsl(219_44%_92%/1)] p-3'>Products</p>
        <div className='flex flex-wrap gap-10 mt-5'>
        {currentProducts.map((dataProduct) => (
              <Link to={`/products/${dataProduct.id}`}>

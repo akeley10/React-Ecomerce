@@ -37,23 +37,23 @@ const Navbar = () => {
         </button>
       </div>
       <div className={`${window.screen.width < 700 && hamburguerMenu === false ? "hidden" : " flex flex-col absolute lg:flex-row lg:relative w-50  rounded-2xl left-10 top-23 lg:top-0 lg:left-20 bg-[#f0f6ff] dark:bg-[#181921] lg:flex flex-1 lg:justify-center lg:gap-10"}`}>
-        <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
         <Link to="/">Home</Link>
         </li>
-        <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
         <Link to="/about">About</Link>
        </li>
-        <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
         <Link to="/products">Products</Link>
           </li>
-        <li className='cursor-pointer p-2  hover:bg-[#021431] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
         <Link to="/cart">Cart</Link>
         </li>
         </div>
         <div className='flex text-left right-0 '>
         <div className='flex gap-2'>
-        <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer p-1 h-6 lg:h-10 invert-0 dark:invert' alt="light"></img></button>
-        <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer p-1 h-6 lg:h-10 invert-0 dark:invert' alt="dark"></img></button>
+        <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer p-1 h-6 lg:h-10 hidden dark:block  absolute right-22 top-13 invert-0 dark:invert' alt="light"></img></button>
+        <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer p-1 h-6 lg:h-10 dark:hidden absolute right-22 top-13 invert-0 dark:invert' alt="dark"></img></button>
         </div>
         <Link to="/cart" className="relative flex items-center gap-1">
         <img src={cartImg} className="cursor-pointer h-6 lg:h-10 invert-0 dark:invert" alt="cart" />
