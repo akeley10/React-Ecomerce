@@ -18,14 +18,14 @@ const Navbar = () => {
   return (
     <>
     <div>
-    <div className='md:flex md:flex-1 md:justify-end bg-[#021431] text-white w-full dark:bg-[#414558]'>
+    <div className='w-70 md:flex md:flex-1 md:justify-end bg-[#021431] text-white md:w-full dark:bg-[#414558]'>
       <p className='float-right mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
       <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
     }   window.location.href = "/"; 
   }} >Cerrar sesión</button>
     </div>
 
-    <div className='flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
+    <div className='w-70 md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
         <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 lg:p-1 rounded-xs'>
         <Link to="/">
         <p  className='hidden lg:block cursor-pointer pr-3 pl-3 text-2xl font-medium text-white'>E</p>
@@ -50,12 +50,12 @@ const Navbar = () => {
         <Link to="/cart">Cart</Link>
         </li>
         </div>
-        <div className='flex text-left right-0 '>
-        <div className='flex gap-2'>
-        <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer p-1 h-6 lg:h-10 hidden dark:block  absolute right-24 top-13 invert-0 dark:invert' alt="light"></img></button>
-        <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer p-1 h-6 lg:h-10 dark:hidden absolute right-24 top-13 invert-0 dark:invert' alt="dark"></img></button>
+        <div className='flex text-left md:right-0 '>
+        <div className='md:flex gap-2'>
+        <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute right-24 top-13 invert-0 dark:invert' alt="light"></img></button>
+        <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute right-24 top-13 invert-0 dark:invert' alt="dark"></img></button>
         </div>
-        <Link to="/cart" className="relative flex items-center gap-1">
+        <Link to="/cart" className="md:absolute right-5 flex items-center gap-1">
         <img src={cartImg} className="cursor-pointer h-6 lg:h-10 invert-0 dark:invert" alt="cart" />
         <div className="dark:bg-[#ff7ca6] bg-blue-500 w-5 mr-2 h-5 rounded-full flex items-center justify-center mb-5">
           <p className="text-white text-xs">{cart.length}</p>

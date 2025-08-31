@@ -67,11 +67,21 @@ const Cart = () => {
               <p className="dark:text-white text-black pt-20 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
               Total: {total.toFixed(2)}$
               <br></br>
-                  {email === "Guest" ?
-                  <a className='h-10 w-20 ml-3 lg:ml-0 mt-3 p-1 text-white bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">Login</a>
-                    : <button onClick={handleCheckout} className='h-10 w-20 ml-3 lg:ml-0 mt-3 text-white bg-[#463aa1] rounded-lg'>Pagar</button>
-                  } 
-            
+              {
+              email === "Guest" ? (
+                <a className='h-10 w-20 ml-3 lg:ml-0 mt-3 p-1 text-white bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">
+                  Login
+                </a>
+              ) : groupedCart.length <= 0 ? (
+                <span className='h-10 w-40 ml-3 lg:ml-0 mt-3 p-1 text-white bg-[#463aa1] rounded-lg flex items-center justify-center'>
+                  Tu carrito está vacío
+                </span>
+              ) : (
+                <button onClick={handleCheckout} className='h-10 w-20 ml-3 lg:ml-0 mt-3 text-white bg-[#463aa1] rounded-lg'>
+                  Pagar
+                </button>
+              )
+              }
               </p>
           </div>
       </div>
