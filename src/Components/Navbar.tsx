@@ -18,14 +18,14 @@ const Navbar = () => {
   return (
     <>
     <div>
-    <div className='w-70 md:flex md:flex-1 md:justify-end bg-[#021431] text-white md:w-full dark:bg-[#414558]'>
-      <p className='float-right mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
+    <div className='w-full md:flex md:flex-1 md:justify-end bg-[#021431] text-white md:w-full dark:bg-[#414558]'>
+      <p className='float-right md:mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
       <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
     }   window.location.href = "/"; 
   }} >Cerrar sesión</button>
     </div>
 
-    <div className='w-70 md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
+    <div className='w-full md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
         <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 lg:p-1 rounded-xs'>
         <Link to="/">
         <p  className='hidden lg:block cursor-pointer pr-3 pl-3 text-2xl font-medium text-white'>E</p>

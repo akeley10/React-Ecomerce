@@ -16,11 +16,14 @@ const Form = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailForm, password }),
     })
-    .then(res => {
-      console.log("Código de estado:", res.status);
-      return res.json();
-    })
-    .then(data => {
+    .then(async res => {
+      const data = await res.json();
+
+      if (!res.ok) {
+        // Login fallido (status 401 o 500)
+        alert(data.message || "Error al iniciar sesión");
+        return;
+      }  
       console.log("Respuesta JSON:", data);
       setEmail(data.email);
       localStorage.setItem('userEmail', data.email);
@@ -33,6 +36,31 @@ const Form = () => {
       console.error("Error en fetch:", err);
     });
   };
+
+  const registerData = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
+    fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: emailForm, password }),
+    })
+    .then(res => {
+      console.log("Código de estado:", res.status);
+      return res.json();
+    })
+    .then(data => {
+      console.log("Respuesta JSON:", data);
+      alert("Registrador Correctamente")
+      setTimeout(function(){
+        window.location.href = "/";
+    }, 2000); 
+    })
+    .catch(err => {
+      console.error("Error en fetch:", err);
+    });
+
+  }
 
   return (
   
@@ -65,7 +93,7 @@ const Form = () => {
     </div>
 
     <div id="register" className={showLogin  === true  ? "hidden w-full flex justify-center absolute top-5  items-center" : "w-full flex justify-center absolute top-20  items-center"}>
-      <form onSubmit={sendData} className="card w-100 content-center p-8 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-50">
+      <form onSubmit={registerData} className="card w-100 content-center p-8 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-50">
         <h2 className="text-center text-3xl font-bold mb-5 mt-5">Register</h2>
         <div className="flex flex-col text-center">
           <label className="text-2xs text-left">Email</label>

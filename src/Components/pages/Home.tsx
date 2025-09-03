@@ -12,8 +12,8 @@ const Home = () => {
         
     <div className='md:flex md:p-20 md:gap-20 dark:bg-[#272935]'>
    <div className='flex-auto p-5 md:p-10'>
-       <p className='text-3xl w-60 lg:w-full dark:text-white md:max-w-2xl  font-bold tracking-tight  md:text-6xl'>We are changing the way people shop</p>
-       <p className='w-70 md:w-full pt-5 pb-5 pr-20 dark:text-white'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.</p>
+       <p className='text-3xl w-full lg:w-full dark:text-white md:max-w-2xl  font-bold tracking-tight  md:text-6xl'>We are changing the way people shop</p>
+       <p className='w-full md:w-full pt-5 pb-5 md:pr-20 dark:text-white'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.</p>
        <Link to="/products">
        <button className='p-3 dark:bg-[#ff7ca6] dark:text-[#301c27] bg-[#057aff] rounded-lg text-xl text-white mx-auto cursor-pointer'>Our Products</button>
        </Link>
