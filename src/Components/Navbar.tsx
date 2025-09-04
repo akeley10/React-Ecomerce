@@ -55,7 +55,7 @@ const Navbar = () => {
         <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute right-24 top-13 invert-0 dark:invert' alt="light"></img></button>
         <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute right-24 top-13 invert-0 dark:invert' alt="dark"></img></button>
         </div>
-        <Link to="/cart" className="md:absolute right-5 flex items-center gap-1">
+        <Link to="/cart" className="absolute right-5 flex items-center gap-1">
         <img src={cartImg} className="cursor-pointer h-6 lg:h-10 invert-0 dark:invert" alt="cart" />
         <div className="dark:bg-[#ff7ca6] bg-blue-500 w-5 mr-2 h-5 rounded-full flex items-center justify-center mb-5">
           <p className="text-white text-xs">{cart.length}</p>
