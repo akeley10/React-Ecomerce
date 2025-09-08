@@ -15,11 +15,11 @@ const Products = () => {
       <Navbar></Navbar>
     <div className='flex lg:p-20 gap-20 dark:bg-[#272935]'>
    <div className=''>
-       <p className='dark:text-white max-w-2xl text-4xl font-bold tracking-tight sm:text-4xl border-b  border-b-[hsl(219_44%_92%/1)] p-3'>Products</p>
+       <p className='dark:text-white  text-4xl font-bold tracking-tight border-b  border-b-[hsl(219_44%_92%/1)] p-3'>Products</p>
        <div className='flex flex-wrap gap-10 mt-5'>
        {currentProducts.map((dataProduct) => (
              <Link to={`/products/${dataProduct.id}`}>
-            <div className='w-100 p-8 bg-auto rounded-md shadow-xl cursor-pointer' key={dataProduct.id}>
+            <div className='md:w-100 p-8 bg-auto rounded-md shadow-xl cursor-pointer' key={dataProduct.id}>
               <img className='h-60 w-100 rounded-lg object-cover' src={dataProduct.img} alt={dataProduct.title} />
               <h2 className=' dark:text-white text-2xl text-center mt-5'>{dataProduct.title}</h2>
               <p className='dark:text-[#bf95f9] text-center mt-4'>{dataProduct.price} $</p>

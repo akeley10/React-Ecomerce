@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import { CartProvider } from './context/Cart.context.js';
 import { UserProvider } from './context/User.context.js';
 import { ThemeProvider } from './context/Theme.context.js';

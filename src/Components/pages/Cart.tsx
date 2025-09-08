@@ -38,8 +38,8 @@ const Cart = () => {
       <Navbar></Navbar>
       <div className='dark:bg-[#181921] h-lvh pt-10 lg:pt-20 pl-4 lg:pl-50 gap-20'>
       {cart.length === 0 ? (
-     <p className='dark:text-white w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
-      ) : (<p className='dark:text-white w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Shopping cart</p> )}
+     <p className='dark:text-white md:w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
+      ) : (<p className='dark:text-white md:w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Shopping cart</p> )}
      
       {cart.length === 0 ? (
         <p className='dark:text-white mt-10 ml-5'>your cart is empty</p>
@@ -63,8 +63,8 @@ const Cart = () => {
           ))}
         </ul>
       )}
-         <div className='dark:bg-[#181921] bg-blue-50 w-50 rounded-xl lg:float-right'>
-              <p className="dark:text-white text-black pt-20 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
+         <div className='dark:bg-[#181921] mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
+              <p className="dark:text-white text-black pt-10 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
               Total: {total.toFixed(2)}$
               <br></br>
               {

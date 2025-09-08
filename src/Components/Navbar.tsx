@@ -20,9 +20,10 @@ const Navbar = () => {
     <div>
     <div className='md:flex md:flex-1 md:justify-end bg-[#021431] text-white md:w-full dark:bg-[#414558]'>
       <p className='float-right md:mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
+      {(email != "Guest") ?
       <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
     }   window.location.href = "/"; 
-  }} >Cerrar sesión</button>
+  }} >Cerrar sesión</button> : "" }
     </div>
 
     <div className=' md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
@@ -43,20 +44,20 @@ const Navbar = () => {
       : "flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
   }`}
 >
-        <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
-        <Link to="/">Home</Link>
+        <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
+        <Link className='menu-element' to="/">Home</Link>
         </li>
         <li className='cursor-pointer text-center p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
-        <Link to="/about">About</Link>
+        <Link className='menu-element' to="/about">About</Link>
        </li>
         <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
-        <Link to="/products">Products</Link>
+        <Link className='menu-element' to="/products">Products</Link>
           </li>
         <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
-        <Link to="/cart">Cart</Link>
+        <Link className='menu-element' to="/cart">Cart</Link>
         </li>
         </div>
-        <div className='w-full flex justify-end items-center gap-3'>
+        <div className='w-full flex justify-end items-center gap-1'>
         <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="light"></img></button>
         <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="dark"></img></button>
         <Link to="/cart" className="relative">
