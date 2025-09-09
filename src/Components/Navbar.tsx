@@ -19,7 +19,7 @@ const Navbar = () => {
     <>
     <div>
     <div className='md:flex md:flex-1 md:justify-end bg-[#021431] text-white md:w-full dark:bg-[#414558]'>
-      <p className='float-right md:mr-25 lg:mr-10 p-2 '><Link to="/form">Sign in / {email}</Link></p>
+      <p className='float-right md:mr-25 lg:mr-10 p-2 '><Link to="/form"> {email === "Guest" ? "Sign in" : ""}  {email == "Guest" ? "" : email} </Link></p>
       {(email != "Guest") ?
       <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
     }   window.location.href = "/"; 

@@ -46,8 +46,8 @@ const Cart = () => {
       ) : (
         <ul className='mt-10 w-30 lg:w-220'>
           {groupedCart.map((product, i) => (
-            <li className='flex flex-col lg:p-2 ' key={i}>
-            {<img className='lg:h-30 lg:w-30 rounded-xl object-cover' src={product.img}></img>} 
+            <li className='flex flex-row lg:p-2  border-b border-b-[hsl(219_44%_92%/1)] pb-3' key={i}>
+            {<img className='lg:h-30 lg:w-30 rounded-xl object-coverp b-3' src={product.img}></img>} 
               {<p className='dark:text-white pl-5 lg:pl-10 pt-5'>{product.title}</p>} 
               {<p className='dark:text-white pl-5 lg:pl-10 pt-5 pr-10'>{(product.count * product.price).toFixed(2)}$</p>}
               {product.count > 1 && (
@@ -65,11 +65,11 @@ const Cart = () => {
       )}
          <div className='dark:bg-[#181921] mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
               <p className="dark:text-white text-black pt-10 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
-              Total: {total.toFixed(2)}$
-              <br></br>
+                {total == 0 ? "" : `Total: ${total.toFixed(2)}$`}
+              <br></br><br></br>
               {
               email === "Guest" ? (
-                <a className='h-10 w-20 ml-3 lg:ml-0 mt-3 p-1 text-white bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">
+                <a className='h-20 w-50 ml-3 lg:ml-0 mt-5 p-3 text-white text-xl bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">
                   Login
                 </a>
               ) : groupedCart.length <= 0 ? (

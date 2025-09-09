@@ -6,8 +6,6 @@ import { Outlet, Link } from "react-router-dom";
 const lamp = () => {
   const { addToCart } = useCart();
   const product = dataProducts.find(p => p.id === 0);
-  
-
   return (
     <>
      <Navbar></Navbar>
