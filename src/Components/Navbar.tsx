@@ -23,7 +23,7 @@ const Navbar = () => {
       {(email != "Guest") ?
       <button className='md:mr-50 p-2'  onClick={() => {   if (deleteEmail) {   deleteEmail(); 
     }   window.location.href = "/"; 
-  }} >Cerrar sesión</button> : "" }
+  }} >Cerrar sesión</button> : <button className='md:mr-50 p-2'>­­ </button>}
     </div>
 
     <div className=' md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
