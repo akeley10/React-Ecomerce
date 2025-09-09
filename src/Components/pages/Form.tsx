@@ -66,13 +66,13 @@ const Form = () => {
   
     <>
     <Navbar></Navbar>
-    <div id="login" className={showLogin  === false  ? "w-full  hidden  justify-center absolute top-5 items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
-      <form onSubmit={sendData} className="card w-100 content-center p-8 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-50">
+    <div id="login" className={showLogin  === false  ? "w-full hidden  justify-center absolute top-5 items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
+      <form onSubmit={sendData} className="card w-100 content-center p-10 mb-30 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Login</h2>
         <div className="flex flex-col text-center">
           <label className=" dark:text-white text-2xs text-left">Email</label>
           <input
-            className="border border-[#394e6a33] dark:border-white p-2 mb-5 rounded-xl"
+            className="border border-[#394e6a33] dark:text-white dark:border-white p-2 mb-5 rounded-xl"
             value={emailForm}
             onChange={(e) => setEmailForm(e.target.value)}
             name="email"
@@ -80,7 +80,7 @@ const Form = () => {
           />
           <label className="dark:text-white text-2xs text-left">Password</label>
           <input
-            className="border border-[#394e6a33] dark:border-white p-2 mb-5 rounded-xl"
+            className="border border-[#394e6a33] dark:text-white dark:border-white p-2 mb-5 rounded-xl"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name="password"
@@ -93,12 +93,12 @@ const Form = () => {
     </div>
 
     <div id="register" className={showLogin  === true  ? "hidden w-full  justify-center absolute top-5  items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
-      <form onSubmit={registerData} className="card w-100  content-center p-8 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-50">
+      <form onSubmit={registerData} className="card w-100 p-10 mb-30  content-center  bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Register</h2>
         <div className="flex flex-col text-center">
           <label className="dark:text-white text-2xs text-left">Email</label>
           <input
-            className="border dark:border-white border-[#394e6a33] p-2 mb-5 rounded-xl"
+            className="border dark:border-white dark:text-white border-[#394e6a33] p-2 mb-5 rounded-xl"
             value={emailForm}
             onChange={(e) => setEmailForm(e.target.value)}
             name="email"
@@ -106,7 +106,7 @@ const Form = () => {
           />
           <label className="dark:text-white text-2xs text-left">Password</label>
           <input
-            className="border dark:border-white border-[#394e6a33] p-2 mb-5 rounded-xl"
+            className="border dark:border-white dark:text-white border-[#394e6a33] p-2 mb-5 rounded-xl"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name="password"

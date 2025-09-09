@@ -26,7 +26,7 @@ const Navbar = () => {
   }} >Cerrar sesión</button> : <button className='md:mr-50 p-2'>­­ </button>}
     </div>
 
-    <div className=' md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
+    <div className='md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
         <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 lg:p-1 rounded-xs'>
         <Link to="/">
         <p  className='hidden lg:block cursor-pointer pr-3 pl-3 text-2xl font-medium text-white'>E</p>
@@ -41,19 +41,19 @@ const Navbar = () => {
   className={`${
     window.screen.width < 700 && hamburguerMenu === false
       ? "hidden"
-      : "flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
+      : " z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
   }`}
 >
-        <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2 text-center transition duration-500  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] rounded-xl hover:text-white'>
         <Link className='menu-element' to="/">Home</Link>
         </li>
-        <li className='cursor-pointer text-center p-2  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer text-center p-2  transition duration-500  hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
         <Link className='menu-element' to="/about">About</Link>
        </li>
-        <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
         <Link className='menu-element' to="/products">Products</Link>
           </li>
-        <li className='cursor-pointer p-2 text-center  hover:bg-[#021431] dark:hover:bg-[#272935] hover:rounded-xl hover:text-white'>
+        <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
         <Link className='menu-element' to="/cart">Cart</Link>
         </li>
         </div>

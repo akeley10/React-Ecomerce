@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className='dark:bg-[#181921] h-lvh pt-10 lg:pt-20 pl-4 lg:pl-50 gap-20'>
+      <div className='dark:bg-[#272935] h-lvh pt-10 lg:pt-20 pl-4 lg:pl-50 gap-20'>
       {cart.length === 0 ? (
      <p className='dark:text-white md:w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Your cart is empty</p>
       ) : (<p className='dark:text-white md:w-4xl text-xl font-bold tracking-tight sm:text-4xl border-b border-b-[hsl(219_44%_92%/1)] p-3'>Shopping cart</p> )}
@@ -63,7 +63,7 @@ const Cart = () => {
           ))}
         </ul>
       )}
-         <div className='dark:bg-[#181921] mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
+         <div className=' mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
               <p className="dark:text-white text-black pt-10 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
                 {total == 0 ? "" : `Total: ${total.toFixed(2)}$`}
               <br></br><br></br>
