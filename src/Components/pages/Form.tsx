@@ -4,6 +4,8 @@ import { useUser } from '../../context/User.context';
 
 const Form = () => {
   const { setEmail } = useUser();
+  const [showMessage, setShowMessage] = useState(false);
+  const [showMessageRegister, setShowMessageRegister] = useState(false);
   const [showLogin ,setShowLogin] = useState(true);
   const [password, setPassword] = useState('');
   const [emailForm, setEmailForm] = useState('');
@@ -20,17 +22,17 @@ const Form = () => {
       const data = await res.json();
 
       if (!res.ok) {
-        // Login fallido (status 401 o 500)
         alert(data.message || "Error al iniciar sesión");
         return;
       }  
       console.log("Respuesta JSON:", data);
       setEmail(data.email);
       localStorage.setItem('userEmail', data.email);
-      alert("Login Correctamente")
+      setShowMessage(true);
       setTimeout(function(){
-        window.location.href = "/";
-    }, 2000); 
+        setShowMessage(false);
+    }, 4000); 
+  
     })
     .catch(err => {
       console.error("Error en fetch:", err);
@@ -51,10 +53,10 @@ const Form = () => {
     })
     .then(data => {
       console.log("Respuesta JSON:", data);
-      alert("Registrador Correctamente")
+      setShowMessageRegister(true);
       setTimeout(function(){
-        window.location.href = "/";
-    }, 2000); 
+        setShowMessageRegister(false);
+    }, 4000); 
     })
     .catch(err => {
       console.error("Error en fetch:", err);
@@ -66,6 +68,9 @@ const Form = () => {
   
     <>
     <Navbar></Navbar>
+    <div  className={showMessage === true ? "visible p-10" : "hidden"}>
+      <p className="text-green-500">Login Correctamente</p>
+    </div>
     <div id="login" className={showLogin  === false  ? "w-full hidden  justify-center absolute top-5 items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
       <form onSubmit={sendData} className="card w-100 content-center p-10 mb-30 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Login</h2>
@@ -92,6 +97,9 @@ const Form = () => {
       </form>
     </div>
 
+    <div  className={showMessageRegister === true ? "visible p-10" : "hidden"}>
+      <p className="text-green-500">Registrado Correctamente</p>
+    </div>
     <div id="register" className={showLogin  === true  ? "hidden w-full  justify-center absolute top-5  items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
       <form onSubmit={registerData} className="card w-100 p-10 mb-30  content-center  bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Register</h2>
