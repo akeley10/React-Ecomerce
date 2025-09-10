@@ -82,8 +82,8 @@ app.post('/create-checkout-session', async (req, res) => {
       mode: 'payment',
       customer_email: email,
       line_items,
-      success_url: 'http://localhost:5173/',
-      cancel_url: 'http://localhost:5173/cart',
+      success_url: 'http://localhost:5173/completed',
+      cancel_url: 'http://localhost:5173/cancel',
     });
 
     res.json({ url: session.url });

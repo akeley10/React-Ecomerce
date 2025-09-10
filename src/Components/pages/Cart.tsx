@@ -63,7 +63,7 @@ const Cart = () => {
           ))}
         </ul>
       )}
-         <div className=' mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
+         <div className='dark:bg-[#181921] mr-10 md:bg-blue-50 md:w-50 rounded-xl lg:float-right'>
               <p className="dark:text-white text-black pt-10 lg:pt-0 lg:absolute lg:top-100 lg:p-10 text-xs text-right">
                 {total == 0 ? "" : `Total: ${total.toFixed(2)}$`}
               <br></br><br></br>

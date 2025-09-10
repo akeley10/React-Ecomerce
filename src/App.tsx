@@ -7,6 +7,8 @@ import Home from './Components/pages/Home.js'
 import About from './Components/pages/About.js'
 import Cart from './Components/pages/Cart.js'
 import Form from './Components/pages/Form.js'
+import Cancel from './Components/pages/Cancel.js'
+import Completed from './Components/pages/Completed.js'
 import Product0 from './Components/pages/productPage/avant-garde lamp.js'
 import Product1 from './Components/pages/productPage/coffee-table.js'
 import Product2 from './Components/pages/productPage/comfy-bed.js'
@@ -28,6 +30,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/cancel" element={<Cancel />} />
+        <Route path="/completed" element={<Completed />} />
         <Route path="/products/0" element={<Product0 />} />
         <Route path="/products/1" element={<Product1 />} />
         <Route path="/products/2" element={<Product2 />} />

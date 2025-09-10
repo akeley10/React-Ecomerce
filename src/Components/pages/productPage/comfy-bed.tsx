@@ -2,9 +2,11 @@ import Navbar from '../../Navbar.js'
 import product2 from '../../../assets/producto2.jpeg'
 import { useCart } from '../../../context/Cart.context';
 import dataProducts from '../../../data/dataProducts';
+import { useUser } from '../../../context/User.context.js';
 import { Outlet, Link } from "react-router-dom";
 const bed = () => {
   const { addToCart } = useCart();
+  const { email } = useUser();
   const product = dataProducts.find(p => p.id === 0);
 
   return (
@@ -19,7 +21,10 @@ const bed = () => {
       <h1 className='dark:text-white mt-5 lg:mt-0 text-3xl ml-10 pb-5 font-bold'>Comfy Bed</h1>
       <p className='dark:text-white text-xl ml-10 pb-5'>10$</p>
       <p className='dark:text-white ml-10 mr-5 lg:w-120 leading-8'>Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge</p>
-      <button className='text-xs w-30 text-white font-bold uppercase bg-[#463aa1] rounded-lg p-3 mt-5 lg:mt-10 ml-10 cursor-pointer' onClick={() => product && addToCart(product)}>Add to bag</button>
+      {email != "Guest" ? <button className='text-xs w-30 text-white font-bold uppercase bg-[#463aa1] rounded-lg p-3 mt-5 lg:mt-10 ml-10 cursor-pointer' onClick={() => product && addToCart(product)}>
+      Add to cart
+     </button>  :  <a className='h-10 w-20 p-1 m-auto text-center  text-white text-xl bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">
+      Login</a> }
       </div>    
      </div>
     <Outlet />

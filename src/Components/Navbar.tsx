@@ -14,6 +14,8 @@ const Navbar = () => {
   const [hamburguerMenu, setHamburguerMenu] = useState(false);
   const { cart } = useCart();
 
+
+
   
   return (
     <>
@@ -41,7 +43,7 @@ const Navbar = () => {
   className={`${
     window.screen.width < 700 && hamburguerMenu === false
       ? "hidden"
-      : " z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
+      : "z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
   }`}
 >
         <li className='cursor-pointer p-2 text-center transition duration-500  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] rounded-xl hover:text-white'>
@@ -58,8 +60,8 @@ const Navbar = () => {
         </li>
         </div>
         <div className='w-full flex justify-end items-center gap-1'>
-        <button onClick={() => setTheme('light')}><img src={light} className='cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="light"></img></button>
-        <button onClick={() => setTheme('dark')}><img src={dark} className='cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="dark"></img></button>
+        <button onClick={() => setTheme('light') }><img src={light} className='hover:animate-spin cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="light"></img></button>
+        <button onClick={() => setTheme('dark')}><img src={dark} className='hover:animate-spin cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="dark"></img></button>
         <Link to="/cart" className="relative">
         <img src={cartImg} className="cursor-pointer h-6 lg:h-10 invert-0 dark:invert mr-10" alt="cart" />
         <div className="absolute -top-2 right-5 dark:bg-[#ff7ca6] bg-blue-500 w-5 h-5 rounded-full flex items-center justify-center">
