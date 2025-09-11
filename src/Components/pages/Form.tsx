@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
+import Sucess from "../Succes";
 import { useUser } from '../../context/User.context';
 
 const Form = () => {
@@ -31,9 +32,10 @@ const Form = () => {
       setShowMessage(true);
       setTimeout(function(){
         setShowMessage(false);
-    }, 4000); 
-  
+        window.location.href="/";
+    }, 3000); 
     })
+    
     .catch(err => {
       console.error("Error en fetch:", err);
     });
@@ -56,7 +58,8 @@ const Form = () => {
       setShowMessageRegister(true);
       setTimeout(function(){
         setShowMessageRegister(false);
-    }, 4000); 
+        window.location.href="/";
+    }, 3000); 
     })
     .catch(err => {
       console.error("Error en fetch:", err);
@@ -68,11 +71,12 @@ const Form = () => {
   
     <>
     <Navbar></Navbar>
-    <div  className={showMessage === true ? "visible p-10" : "hidden"}>
-      <p className="text-green-500">Login Correctamente</p>
+    <div  className={showMessage === true ? "flex flex-col items-center justify-center min-h-screen bg-gray-50 m-auto" : "hidden"}>
+      <Sucess></Sucess>
+      <p className="text-green-500">Login Succesfull</p>
     </div>
-    <div id="login" className={showLogin  === false  ? "w-full hidden  justify-center absolute top-5 items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
-      <form onSubmit={sendData} className="card w-100 content-center p-10 mb-30 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
+    <div id="login" className={showLogin  === false  || showMessage === true ? "hidden" : "dark:bg-[#272935] w-full  flex justify-center absolute top-25 items-center"}>
+      <form onSubmit={sendData} className="card w-100 rounded-xl border border-gray-50 content-center p-10 mb-30 bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Login</h2>
         <div className="flex flex-col text-center">
           <label className=" dark:text-white text-2xs text-left">Email</label>
@@ -81,7 +85,7 @@ const Form = () => {
             value={emailForm}
             onChange={(e) => setEmailForm(e.target.value)}
             name="email"
-            type="email"
+            type="email" required
           />
           <label className="dark:text-white text-2xs text-left">Password</label>
           <input
@@ -89,19 +93,20 @@ const Form = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name="password"
-            type="text"
+            type="text" required
           />
-          <button className="bg-[#057aff] p-2 text-white rounded-6xs cursor-pointer" type="submit">Login</button>
+          <button className="bg-[#057aff] hover:bg-[#055dff]  p-2 text-white rounded-6xs cursor-pointer" type="submit">Login</button>
         </div>
         <a onClick={ ()=> setShowLogin(false)}  className='text-[#057aff] cursor-pointer m-auto'>¿No tienes cuenta? Registrate</a>
       </form>
     </div>
 
-    <div  className={showMessageRegister === true ? "visible p-10" : "hidden"}>
-      <p className="text-green-500">Registrado Correctamente</p>
+    <div  className={showMessageRegister === true ? "flex flex-col items-center justify-center min-h-screen bg-gray-50  m-auto" : "hidden"}>
+      <Sucess></Sucess>
+      <p className="text-green-500">Register Succesfull</p>
     </div>
-    <div id="register" className={showLogin  === true  ? "hidden w-full  justify-center absolute top-5  items-center" : "dark:bg-[#272935] w-full flex justify-center absolute top-25 items-center"}>
-      <form onSubmit={registerData} className="card w-100 p-10 mb-30  content-center  bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
+    <div id="register" className={showLogin  === true || showMessageRegister === true  ? "hidden" : "dark:bg-[#272935] w-full  flex justify-center absolute top-25 items-center"}>
+      <form onSubmit={registerData} className="card w-100 rounded-xl border border-gray-50  p-10 mb-30  content-center  bg-base-100 shadow-lg flex flex-col gap-y-4 mt-30">
         <h2 className="dark:text-white text-center text-3xl font-bold mb-5 mt-5">Register</h2>
         <div className="flex flex-col text-center">
           <label className="dark:text-white text-2xs text-left">Email</label>
@@ -110,7 +115,7 @@ const Form = () => {
             value={emailForm}
             onChange={(e) => setEmailForm(e.target.value)}
             name="email"
-            type="email"
+            type="email" required
           />
           <label className="dark:text-white text-2xs text-left">Password</label>
           <input
@@ -118,9 +123,9 @@ const Form = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name="password"
-            type="text"
+            type="text" required
           />
-          <button className="bg-[#057aff] p-2 text-white rounded-6xs cursor-pointer" type="submit">Register</button>
+          <button className="bg-[#057aff] hover:bg-[#055dff] p-2 text-white rounded-6xs cursor-pointer" type="submit">Register</button>
         </div>
         <a  onClick={ ()=> setShowLogin(true)} className="text-[#057aff] cursor-pointer m-auto">¿Tienes una cuenta? Logeate</a>
       </form>

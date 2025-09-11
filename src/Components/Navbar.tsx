@@ -42,8 +42,8 @@ const Navbar = () => {
       <div
   className={`${
     window.screen.width < 700 && hamburguerMenu === false
-      ? "hidden"
-      : "z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
+      ? "hidden" 
+      : "visible z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
   }`}
 >
         <li className='cursor-pointer p-2 text-center transition duration-500  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] rounded-xl hover:text-white'>
