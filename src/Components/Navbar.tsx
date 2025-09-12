@@ -53,22 +53,22 @@ const Navbar = () => {
       </div>
       <div
   className={`${
-    window.screen.width < 700 && hamburguerMenu === false
+    window.screen.width < 767 && hamburguerMenu === false
       ? "hidden" 
-      : "visible z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2 bg-[#f0f6ff] dark:bg-[#181921] flex-1 justify-center items-center md:gap-10"
+      : "visible z-10 flex flex-col absolute md:flex-row md:relative w-50 rounded-2xl left-10 top-23 md:top-0 md:left-1/2 md:-translate-x-1/2  flex-1 justify-center items-center md:gap-10"
   }`}
 >
-        <li className='cursor-pointer p-2 text-center transition duration-500  hover:bg-[#021431] active:bg-red dark:hover:bg-[#272935] rounded-xl hover:text-white'>
-        <Link className='menu-element' to="/">Home</Link>
+        <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
+        <Link  to="/">Home</Link>
         </li>
-        <li className='cursor-pointer text-center p-2  transition duration-500  hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
-        <Link className='menu-element' to="/about">About</Link>
+        <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
+        <Link  to="/about">About</Link>
        </li>
         <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
-        <Link className='menu-element' to="/products">Products</Link>
+        <Link  to="/products">Products</Link>
           </li>
         <li className='cursor-pointer p-2 text-center transition duration-500   hover:bg-[#021431] dark:hover:bg-[#272935] rounded-xl hover:text-white'>
-        <Link className='menu-element' to="/cart">Cart</Link>
+        <Link  to="/cart">Cart</Link>
         </li>
         </div>
         <div className='w-full flex justify-end items-center'>

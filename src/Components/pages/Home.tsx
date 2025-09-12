@@ -10,7 +10,7 @@ const Home = () => {
       <>
         <Navbar></Navbar>
         
-    <div className='md:flex md:p-20 md:gap-20 dark:bg-[#272935]'>
+    <div className='lg:flex md:p-10 md:gap-20 dark:bg-[#272935]'>
    <div className='flex-auto p-5 md:p-10'>
        <p className='text-3xl w-full lg:w-full dark:text-white md:max-w-2xl  font-bold tracking-tight  md:text-6xl'>We are changing the way people shop</p>
        <p className='w-full md:w-full pt-5 pb-5 md:pr-20 dark:text-white'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore repellat explicabo enim soluta temporibus asperiores aut obcaecati perferendis porro nobis.</p>
