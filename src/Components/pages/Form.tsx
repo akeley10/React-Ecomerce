@@ -71,7 +71,7 @@ const Form = () => {
   
     <>
     <Navbar></Navbar>
-    <div  className={showMessage === true ? "flex flex-col items-center justify-center min-h-screen bg-gray-50 m-auto" : "hidden"}>
+    <div  className={showMessage === true ? "flex flex-col items-center justify-center min-h-screen dark:bg-[#272935] bg-gray-50 m-auto" : "hidden"}>
       <Sucess></Sucess>
       <p className="text-green-500">Login Succesfull</p>
     </div>
@@ -101,7 +101,7 @@ const Form = () => {
       </form>
     </div>
 
-    <div  className={showMessageRegister === true ? "flex flex-col items-center justify-center min-h-screen bg-gray-50  m-auto" : "hidden"}>
+    <div  className={showMessageRegister === true ? "flex flex-col items-center justify-center min-h-screen dark:bg-[#272935] bg-gray-50  m-auto" : "hidden"}>
       <Sucess></Sucess>
       <p className="text-green-500">Register Succesfull</p>
     </div>

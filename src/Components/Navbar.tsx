@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import cartImg from '../assets/cart.png';
-import dark from '../assets/dark.svg';
-import light from '../assets/light.svg';
 import hamburguer from '../assets/hamburguer.png';
+import Lottie from "lottie-react";
+import dark from '../assets/dark.json';
 import { Outlet, Link } from "react-router-dom";
 import { useCart } from '../context/Cart.context';
 import { useTheme } from '../context/Theme.context';
@@ -13,10 +13,22 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [hamburguerMenu, setHamburguerMenu] = useState(false);
   const { cart } = useCart();
+  const darkLottieRef = useRef<any>(null);
 
+  const handleClickDark = () => {
+    darkLottieRef.current?.playSegments([0, 80], true);
+    setTimeout(() => {
+      setTheme('dark');
+    }, 1000);
+  };
 
+  const handleClickLight = () => {
+    darkLottieRef.current.playSegments([80, 0], true);
+    setTimeout(() => {
+      setTheme('light');
+    }, 1000);
+  };
 
-  
   return (
     <>
     <div>
@@ -29,7 +41,7 @@ const Navbar = () => {
     </div>
 
     <div className='md:w-full flex flex-1  bg-[#f0f6ff] md:p-3 list-none dark:bg-[#181921] dark:text-white'>
-        <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 lg:p-1 rounded-xs'>
+        <div className='lg:flex text-left dark:bg-[#ff7ca6] lg:bg-blue-500 p-1 rounded-xs'>
         <Link to="/">
         <p  className='hidden lg:block cursor-pointer pr-3 pl-3 text-2xl font-medium text-white'>E</p>
         </Link>
@@ -59,9 +71,15 @@ const Navbar = () => {
         <Link className='menu-element' to="/cart">Cart</Link>
         </li>
         </div>
-        <div className='w-full flex justify-end items-center gap-1'>
-        <button onClick={() => setTheme('light') }><img src={light} className='hover:animate-spin cursor-pointer h-5 lg:h-10 hidden dark:block  md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="light"></img></button>
-        <button onClick={() => setTheme('dark')}><img src={dark} className='hover:animate-spin cursor-pointer  h-5 lg:h-10 dark:hidden md:absolute md:right-24 md:top-13 invert-0 dark:invert' alt="dark"></img></button>
+        <div className='w-full flex justify-end items-center'>
+          <button className='cursor-pointer w-15 h-10' onClick={theme === 'dark' ? handleClickLight : handleClickDark}>
+            <Lottie
+              lottieRef={darkLottieRef}
+              animationData={dark}
+              loop={false}
+              autoplay={false}
+            />
+          </button>
         <Link to="/cart" className="relative">
         <img src={cartImg} className="cursor-pointer h-6 lg:h-10 invert-0 dark:invert mr-10" alt="cart" />
         <div className="absolute -top-2 right-5 dark:bg-[#ff7ca6] bg-blue-500 w-5 h-5 rounded-full flex items-center justify-center">
@@ -76,5 +94,6 @@ const Navbar = () => {
     </>
   )
 }
+
 
 export default Navbar;
