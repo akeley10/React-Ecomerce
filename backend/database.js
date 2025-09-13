@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 })
 
 const stripe = Stripe('sk_test_51RzmV51ddpsbF4YJJnT62Dxrro3EgGhDM7Ok6ksxQta7jibi5T4T2KvK9fbb30V1NUilw2n69zAk6UB0uoG6x2Wp002VzD1kWo');
-
+const bcrypt = require('bcrypt');
 
 
 
@@ -31,40 +31,67 @@ app.listen(port, () => {
 
 
 
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  console.log("Datos recibidos en login:", req.body);
-  let sql = "Select * from users where email = ? && password = ? ";
-    connection.query(sql, [email,password], (err,results)=>{
-      if (results.length === 0) {
-        return res.status(401).json({ success: false, message: "Email o Contraseña incorrecta" });
-      }
-      const user = results[0];
-      if (user.password === password && user.email === email){
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    console.log("Datos recibidos en login:", req.body);
+
+    connection.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email],
+      async (err, results) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ success: false, message: "Error en el servidor" });
+        }
+
+        if (results.length === 0) {
+          return res.status(401).json({ success: false, message: "Email o contraseña incorrecta" });
+        }
+
+        const user = results[0];
+
+        const match = await bcrypt.compare(password, user.password);
+
+        if (!match) {
+          return res.status(401).json({ success: false, message: "Email o contraseña incorrecta" });
+        }
         res.status(200).json({
           success: true,
-          email: user.email    
+          email: user.email,
+          message: "Login correcto"
         });
-      }else{
-        return res.status(401).json({ success: false, message: "Contraseña incorrecta" });
       }
-
-    });
-  
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
 });
 
 
-app.post('/register', (req, res) => {
+
+app.post('/register', async (req, res) => {
   const { email, password } = req.body;
   console.log("Datos recibidos en registro:", req.body);
-  res.status(200).json({
-    success: true,
-    email: req.body.email || 'Email no recibido',
-    password: req.body.password || 'Contraseña no recibida',
-  });
-  let sql = "INSERT INTO users (email, password) VALUES (?, ?)";
-  connection.query(sql, [email,password]);
+  let passwordEncripted = await bcrypt.hash(password,10);
+  
+  connection.query(
+    "INSERT INTO users (email, password) VALUES (?, ?)",
+    [email, passwordEncripted],
+    (err, result) => {
+      if (err) {
+        console.error("Error al insertar usuario:", err);
+        return res.status(500).json({ success: false, message: "Error al registrar usuario" });
+      }
 
+      res.status(200).json({
+        success: true,
+        email,
+        message: "Usuario registrado correctamente"
+      });
+    }
+  );
 });
 
 
