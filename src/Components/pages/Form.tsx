@@ -29,11 +29,11 @@ const Form = () => {
       console.log("Respuesta JSON:", data);
       setEmail(data.email);
       localStorage.setItem('userEmail', data.email);
-      setShowMessage(true);
+       setShowMessage(true);
       setTimeout(function(){
         setShowMessage(false);
         window.location.href="/";
-    }, 3000); 
+    }, 2000); 
     })
     
     .catch(err => {
@@ -54,12 +54,12 @@ const Form = () => {
       return res.json();
     })
     .then(data => {
+     setShowMessageRegister(true);
       console.log("Respuesta JSON:", data);
-      setShowMessageRegister(true);
       setTimeout(function(){
-        setShowMessageRegister(false);
-        window.location.href="/";
-    }, 3000); 
+      setShowMessageRegister(false);
+      window.location.href="/";
+    }, 2000); 
     })
     .catch(err => {
       console.error("Error en fetch:", err);
@@ -72,6 +72,7 @@ const Form = () => {
     <>
     <Navbar></Navbar>
     <div  className={showMessage === true ? "flex flex-col items-center justify-center min-h-screen dark:bg-[#272935] bg-gray-50 m-auto" : "hidden"}>
+ 
       <Sucess></Sucess>
       <p className="text-green-500">Login Succesfull</p>
     </div>
@@ -93,7 +94,7 @@ const Form = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             name="password"
-            type="text" required
+            type="password" required
           />
           <button className="bg-[#057aff] hover:bg-[#055dff]  p-2 text-white rounded-6xs cursor-pointer" type="submit">Login</button>
         </div>
