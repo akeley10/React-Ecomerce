@@ -120,3 +120,22 @@ app.post('/create-checkout-session', async (req, res) => {
   }
 });
 
+
+app.post("/send-products", async (req, res) => {
+  try {
+    const products = await stripe.products.list({
+      expand: ["data.default_price"]
+    });
+    
+    const simplified = products.data.map(p => ({
+      id: p.id,
+      name: p.name,
+      image: p.images[0],
+      price: p.default_price.unit_amount
+    }));
+    res.json(simplified);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener productos de Stripe" });
+  }
+});
