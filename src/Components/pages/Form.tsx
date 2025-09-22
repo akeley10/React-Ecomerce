@@ -14,7 +14,7 @@ const Form = () => {
   const sendData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    fetch("http://localhost:3000/login", {
+    fetch("https://react-ecomerce.akeley10lol.workers.dev/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailForm, password }),
@@ -44,7 +44,7 @@ const Form = () => {
   const registerData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    fetch("http://localhost:3000/register", {
+    fetch("https://react-ecomerce.akeley10lol.workers.dev/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailForm, password }),
