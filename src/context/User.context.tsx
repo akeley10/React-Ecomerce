@@ -1,5 +1,5 @@
-import  { createContext, useState, useContext, useEffect } from 'react';
-import type {ReactNode} from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
+import type { ReactNode } from 'react';
 
 interface UserContextType {
   email: string;
@@ -16,7 +16,6 @@ const UserContext = createContext<UserContextType>({
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [email, setEmailState] = useState('Guest');
 
-  // Cuando el contexto se monta, intenta leer el email guardado
   useEffect(() => {
     const storedEmail = localStorage.getItem('userEmail');
     if (storedEmail) {
@@ -24,14 +23,13 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // Esta función setEmail actualiza el estado y el localStorage
   const setEmail = (email: string) => {
     setEmailState(email);
     localStorage.setItem('userEmail', email);
   };
 
-  const deleteEmail = (email: string) => {
-    setEmailState(email);
+  const deleteEmail = () => {
+    setEmailState('Guest');
     localStorage.removeItem('userEmail');
   };
 
