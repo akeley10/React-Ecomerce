@@ -9,7 +9,7 @@ const Products = () => {
   
     const [product, setProduct] = useState<Product[]>([]);
       useEffect(()=>{
-        fetch("http://localhost:3000/send-products", {
+        fetch("https://react-ecomerce.akeley10lol.workers.dev//send-products", {
           method: "POST"
         })
 
