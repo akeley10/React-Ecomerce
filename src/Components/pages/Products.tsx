@@ -1,13 +1,9 @@
 import Navbar from '../Navbar.js'
 import { useEffect, useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
+import {type Product } from  '../../data/dataProduct.js';
 
-interface Product {
-  id: string;
-  name: string;
-  price: string;
-  image?: string;
-}
+
 
 const Products = () => {
   
