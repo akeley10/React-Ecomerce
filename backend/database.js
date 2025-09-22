@@ -121,7 +121,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 
-app.post("/send-products", async (req, res) => {
+app.post("https://react-ecomerce.akeley10lol.workers.dev/send-products", async (req, res) => {
   try {
     const products = await stripe.products.list({
       expand: ["data.default_price"]
