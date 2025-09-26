@@ -17,21 +17,13 @@ pool.connect()
     console.log("✅ Conectado a Neon Postgres");
 
     app.listen(port, () => {
-      console.log(`🚀 Servidor escuchando en https://react-ecomerce10.netlify.app/`);
+      console.log(`🚀 Servidor escuchando en puerto ${port}`);
     });
   })
   .catch(err => {
     console.error("❌ Error de conexión a Neon Postgres:", err);
     process.exit(1); 
   });
-
-app.use(cors({ origin: 'https://react-ecomerce10.netlify.app' }));
-app.use(express.json()); 
-
-app.get('/', (req, res) => {
-  res.send('Servidor Express funcionando 🚀');
-});
-
 
 
 
