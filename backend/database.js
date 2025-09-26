@@ -33,9 +33,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en  https://react-ecomerce10.netlify.app/`);
-});
 
 
 app.post('/login', async (req, res) => {
