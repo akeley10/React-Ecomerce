@@ -14,8 +14,18 @@ const pool = new Pool({
 
 
 pool.connect()
-  .then(() => console.log("✅ Conectado a Neon Postgres"))
-  .catch(err => console.error("❌ Error de conexión:", err));
+  .then(() => {
+    console.log("✅ Conectado a Neon Postgres");
+
+    // 🔹 Solo arrancamos el servidor si la DB funciona
+    app.listen(port, () => {
+      console.log(`🚀 Servidor escuchando en https://react-ecomerce10.netlify.app/`);
+    });
+  })
+  .catch(err => {
+    console.error("❌ Error de conexión a Neon Postgres:", err);
+    process.exit(1); // sale del proceso si falla la DB
+  });
 
 app.use(cors({ origin: 'https://react-ecomerce10.netlify.app' }));
 app.use(express.json()); 
@@ -30,7 +40,6 @@ app.listen(port, () => {
 });
 
 
-// 🔹 LOGIN
 app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -65,7 +74,7 @@ app.post('/login', async (req, res) => {
 });
 
 
-// 🔹 REGISTER
+
 app.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -91,7 +100,6 @@ app.post('/register', async (req, res) => {
 });
 
 
-// 🔹 STRIPE CHECKOUT
 app.post('/create-checkout-session', async (req, res) => {
   const { cart, email } = req.body;
 
@@ -118,7 +126,6 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 
-// 🔹 OBTENER PRODUCTOS DE STRIPE
 app.post("/send-products", async (req, res) => {
   try {
     const products = await stripe.products.list({
