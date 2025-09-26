@@ -8,12 +8,11 @@ const bcrypt = require('bcrypt');
 
 const stripe = Stripe('sk_test_51RzmV51ddpsbF4YJJnT62Dxrro3EgGhDM7Ok6ksxQta7jibi5T4T2KvK9fbb30V1NUilw2n69zAk6UB0uoG6x2Wp002VzD1kWo');
 
-// 🔹 Conexión a Neon (usa tu connection string real)
 const pool = new Pool({
-  connectionString: "postgresql://neondb_owner:TU_PASSWORD@ep-dawn-art-adg6rc3x-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+  connectionString: "postgresql://neondb_owner:npg_ZR8kI0aNYWtp@ep-dawn-art-adg6rc3x-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 });
 
-// Probar conexión
+
 pool.connect()
   .then(() => console.log("✅ Conectado a Neon Postgres"))
   .catch(err => console.error("❌ Error de conexión:", err));
@@ -25,7 +24,7 @@ app.get('/', (req, res) => {
   res.send('Servidor Express funcionando 🚀');
 });
 
-// Arrancar servidor
+
 app.listen(port, () => {
   console.log(`Servidor escuchando en  https://react-ecomerce10.netlify.app/`);
 });
