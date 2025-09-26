@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 
 
 
-app.use(cors({ origin: 'https://react-ecomerce.akeley10lol.workers.dev/' }));
+app.use(cors());
 app.use(express.json()); 
 
 
