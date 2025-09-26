@@ -16,6 +16,17 @@ pool.connect()
   .then(() => {
     console.log("✅ Conectado a Neon Postgres");
 
+    // ✅ Definimos la ruta raíz que muestra el estado de la DB
+    app.get('/', async (req, res) => {
+      try {
+        const result = await pool.query('SELECT NOW()');
+        res.send(`Servidor Express funcionando 🚀 | DB conectada ✅ | Hora actual DB: ${result.rows[0].now}`);
+      } catch (err) {
+        console.error('Error conectando a DB en /:', err);
+        res.send(`Servidor Express funcionando 🚀 | DB no conectada ❌`);
+      }
+    });
+
     app.listen(port, () => {
       console.log(`🚀 Servidor escuchando en puerto ${port}`);
     });
@@ -24,7 +35,6 @@ pool.connect()
     console.error("❌ Error de conexión a Neon Postgres:", err);
     process.exit(1); 
   });
-
 
 
 app.post('/login', async (req, res) => {
