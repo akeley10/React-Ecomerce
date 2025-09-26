@@ -17,16 +17,15 @@ app.use(express.json());
 
 pool.connect()
   .then(() => {
-    console.log("✅ Conectado a Neon Postgres");
+    console.log("Conectado a Neon Postgres");
 
-    // ✅ Definimos la ruta raíz que muestra el estado de la DB
     app.get('/', async (req, res) => {
       try {
         const result = await pool.query('SELECT NOW()');
-        res.send(`Servidor Express funcionando 🚀 | DB conectada ✅ | Hora actual DB: ${result.rows[0].now}`);
+        res.send(`Servidor Express funcionando  | DB conectada`);
       } catch (err) {
         console.error('Error conectando a DB en /:', err);
-        res.send(`Servidor Express funcionando 🚀 | DB no conectada ❌`);
+        res.send(`Servidor Express funcionando | DB no conectada`);
       }
     });
 
