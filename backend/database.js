@@ -12,6 +12,9 @@ const pool = new Pool({
   connectionString: "postgresql://neondb_owner:npg_ZR8kI0aNYWtp@ep-dawn-art-adg6rc3x-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 });
 
+app.use(cors({ origin: 'https://react-ecomerce10.netlify.app' }));
+app.use(express.json());
+
 pool.connect()
   .then(() => {
     console.log("✅ Conectado a Neon Postgres");
