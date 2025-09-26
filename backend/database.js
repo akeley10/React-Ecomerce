@@ -12,19 +12,17 @@ const pool = new Pool({
   connectionString: "postgresql://neondb_owner:npg_ZR8kI0aNYWtp@ep-dawn-art-adg6rc3x-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 });
 
-
 pool.connect()
   .then(() => {
     console.log("✅ Conectado a Neon Postgres");
 
-    // 🔹 Solo arrancamos el servidor si la DB funciona
     app.listen(port, () => {
       console.log(`🚀 Servidor escuchando en https://react-ecomerce10.netlify.app/`);
     });
   })
   .catch(err => {
     console.error("❌ Error de conexión a Neon Postgres:", err);
-    process.exit(1); // sale del proceso si falla la DB
+    process.exit(1); 
   });
 
 app.use(cors({ origin: 'https://react-ecomerce10.netlify.app' }));
