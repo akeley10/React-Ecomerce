@@ -17,7 +17,7 @@ const Cart = () => {
   );
 
   const handleCheckout = () => {
-  fetch('http://localhost:3000/create-checkout-session', {
+  fetch('https://react-ecomerce.onrender.com/create-checkout-session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ cart: groupedCart, email }),
@@ -69,7 +69,7 @@ const Cart = () => {
               <br></br><br></br>
               {
               email === "Guest" ? (
-                <a className='h-20 w-50 ml-3 lg:ml-0 mt-5 p-3 text-white text-xl bg-[#463aa1] rounded-lg' href="http://localhost:5173/form">
+                <a className='h-20 w-50 ml-3 lg:ml-0 mt-5 p-3 text-white text-xl bg-[#463aa1] rounded-lg' href="https://react-ecomerce10.netlify.app/form">
                   Login
                 </a>
               ) : groupedCart.length <= 0 ? (

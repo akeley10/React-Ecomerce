@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 
 
 
-app.use(cors());
+app.use(cors({ origin: 'https://react-ecomerce10.netlify.app/' }));
 app.use(express.json()); 
 
 
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 // Arrancar servidor
 app.listen(port, () => {
-  console.log(`Servidor escuchando en  https://react-ecomerce.akeley10lol.workers.dev/`);
+  console.log(`Servidor escuchando en  https://react-ecomerce10.netlify.app/`);
 });
 
 
@@ -109,8 +109,8 @@ app.post('/create-checkout-session', async (req, res) => {
       mode: 'payment',
       customer_email: email,
       line_items,
-      success_url: 'https://react-ecomerce.akeley10lol.workers.dev/completed',
-      cancel_url: 'https://react-ecomerce.akeley10lol.workers.dev/cancel',
+      success_url: 'https://react-ecomerce10.netlify.app/completed',
+      cancel_url: 'https://react-ecomerce10.netlify.app/cancel',
     });
 
     res.json({ url: session.url });

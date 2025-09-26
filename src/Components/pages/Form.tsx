@@ -14,7 +14,7 @@ const Form = () => {
   const sendData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    fetch("https://react-ecomerce.onrender.com/login", {
+    fetch("https://react-ecomerce10.netlify.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailForm, password }),
@@ -44,7 +44,7 @@ const Form = () => {
   const registerData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    fetch("https://react-ecomerce.onrender.com/register", {
+    fetch("https://react-ecomerce10.netlify.app/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailForm, password }),
