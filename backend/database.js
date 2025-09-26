@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 
 
 
-app.use(cors({ origin: 'https://react-ecomerce10.netlify.app/' }));
+app.use(cors({ origin: 'https://react-ecomerce10.netlify.app' }));
 app.use(express.json()); 
 
 
